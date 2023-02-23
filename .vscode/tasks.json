@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build: Debug",
+            "type": "shell",
+            "command": "./Build.sh dontExecuteMaxByScript",
+            "presentation": {"echo": true, "reveal": "always", "focus": false, "panel": "shared", "showReuseMessage": false, "clear": true},
+        },
+        {
+            "label": "Build: Debug (clean)",
+            "type": "shell",
+            "command": "./Build.sh clean dontExecuteMaxByScript",
+            "presentation": {"echo": true, "reveal": "always", "focus": false, "panel": "shared", "showReuseMessage": false, "clear": true},
+        },
+        {
+            "label": "Build & Run: Debug",
+            "type": "shell",
+            "command": "./Build.sh",
+            "presentation": {"echo": true, "reveal": "always", "focus": false, "panel": "shared", "showReuseMessage": false, "clear": true},
+        },
+        {
+            "label": "Build Notarized product",
+            "type": "shell",
+            "command": "./Build.sh notarize",
+            "presentation": {"echo": true, "reveal": "always", "focus": false, "panel": "shared", "showReuseMessage": false, "clear": true},
+        }
+       
+    ]
+}

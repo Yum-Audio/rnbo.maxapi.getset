@@ -1,0 +1,7 @@
+build
+external
+docs
+CMakeFiles*
+JUCE/tools/*
+JUCE/JUCEConfig*
+JUCE/JUCEExport*
