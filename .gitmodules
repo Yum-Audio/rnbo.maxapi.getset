@@ -1,0 +1,6 @@
+[submodule "Libraries/min-api"]
+	path = Libraries/min-api
+	url = https://github.com/Cycling74/min-api
+[submodule "Libraries/min-lib"]
+	path = Libraries/min-lib
+	url = https://github.com/Cycling74/min-lib
