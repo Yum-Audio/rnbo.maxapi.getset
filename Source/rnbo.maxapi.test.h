@@ -23,7 +23,7 @@ public:
     outlet<> mcOutlet;
 
   private:
-  	message<> patchlineupdate;
+    message<> patchlineupdate;
     void handlePatchlineUpdate (const atoms& args);
     std::string getClassnameForMaxObject (max::t_object *obj);
     max::t_object *currentlyConnectedRnboObject = nullptr;
