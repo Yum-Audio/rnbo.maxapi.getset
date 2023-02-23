@@ -14,9 +14,9 @@ public:
     rnbo_maxapi_test (const min::atoms &args = {});
     void operator() (audio_bundle input, audio_bundle output){}
 
-  	MIN_DESCRIPTION	{ "RNBO MaxAPI test" };
-    MIN_TAGS		    { "utilities" };
-    MIN_AUTHOR	    { "Yum Audio" };
+    MIN_DESCRIPTION { "RNBO MaxAPI test" };
+    MIN_TAGS        { "utilities" };
+    MIN_AUTHOR      { "Yum Audio" };
     MIN_RELATED     {""};
 
     inlet<> mcInlet;
@@ -24,7 +24,7 @@ public:
 
   private:
   	message<> patchlineupdate;
-	  void handlePatchlineUpdate (const atoms& args);
+    void handlePatchlineUpdate (const atoms& args);
     std::string getClassnameForMaxObject (max::t_object *obj);
     max::t_object *currentlyConnectedRnboObject = nullptr;
 
