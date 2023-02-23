@@ -1,44 +1,34 @@
 #include "rnbo.maxapi.test.h"
 
-MIN_EXTERNAL(rnbo_maxapi_test);
+MIN_EXTERNAL (rnbo_maxapi_test);
 
-rnbo_maxapi_test::rnbo_maxapi_test(const min::atoms &a)
-    : mcInlet{this, "(multichannelsignal) Audio In", "multichannelsignal"},
-      mcOutlet{this, "() Connect me to a rnbo~ object"},
-      patchlineupdate(
-          this, "patchlineupdate",
-          MIN_FUNCTION {
-            handlePatchlineUpdate(args);
-            return {};
-          }),
-
-      notify(
-          this, "notify",
-          MIN_FUNCTION {
-            handleNotify(args);
-            return {};
-          }),
-      getterPrintTimer (this, MIN_FUNCTION { onGetterPrintTimer (); return {}; })
-      
+rnbo_maxapi_test::rnbo_maxapi_test (const min::atoms &a)
+:
+mcInlet {this, "(multichannelsignal) Audio In", "multichannelsignal"},
+mcOutlet {this, "() Connect me to a rnbo~ object"},
+patchlineupdate {this, "patchlineupdate", MIN_FUNCTION { handlePatchlineUpdate(args); return {}; }},
+getterPrintTimer (this, MIN_FUNCTION { onGetterPrintTimer (); return {}; })     
 {
     max::common_symbols_init();
-
     getterPrintTimer.delay (2000);
 }
 
-void rnbo_maxapi_test::handleNotify(const atoms &args) {}
-
-void rnbo_maxapi_test::onGetterPrintTimer()
+void rnbo_maxapi_test::onGetterPrintTimer ()
 {
-    if (currentlyConnectedRnboObject != nullptr) {
-      cout << "" << endl;
-        const auto paramVal = max::object_attr_getfloat(
-          max::jbox_get_object(currentlyConnectedRnboObject),
-          max::gensym("testParam"));
+    if (currentlyConnectedRnboObject != nullptr) 
+    {
+        cout << "" << endl;
+        const auto paramVal = max::object_attr_getfloat (
+            max::jbox_get_object(currentlyConnectedRnboObject),
+            max::gensym("testParam")
+        );
+
         cout << "testParam: " << paramVal << endl;
       
-        if (auto enumSym = max::object_attr_getsym (max::jbox_get_object(currentlyConnectedRnboObject), 
-                                                    max::gensym ("testEnumParam")))
+        if (auto enumSym = max::object_attr_getsym (
+                max::jbox_get_object (currentlyConnectedRnboObject), 
+                max::gensym ("testEnumParam")
+            ))
         {
             if (auto enumVal = enumSym->s_name)
             {
@@ -58,7 +48,7 @@ void rnbo_maxapi_test::onGetterPrintTimer()
     getterPrintTimer.delay (2000);
 }
 
-void rnbo_maxapi_test::handlePatchlineUpdate(const atoms &args)
+void rnbo_maxapi_test::handlePatchlineUpdate (const atoms &args)
 {
     max::t_object* x = args[0];
     max::t_object* patchline = args[1];
@@ -100,7 +90,7 @@ void rnbo_maxapi_test::handlePatchlineUpdate(const atoms &args)
     }
 }
 
-std::string rnbo_maxapi_test::getClassnameForMaxObject(max::t_object *obj)
+std::string rnbo_maxapi_test::getClassnameForMaxObject (max::t_object *obj)
 {
     if (obj == nullptr || max::object_classname (obj) == nullptr)
         return std::string("");
