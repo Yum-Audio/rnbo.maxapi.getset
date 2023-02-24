@@ -16,7 +16,14 @@ Make sure to either clone using `--recurse-submodules` or alternatively call `$ 
 Add `<your-local-repo-path>/external` to your MaxMSP search paths, so MaxMSP can find the built external. 
 
 ## Build
-Build the project using the included `Build.sh` script. (On Windows you might have to install Git Bash or a similar environment).
+First, have a look at [Source/rnbo.maxapi.getset.h](Source/rnbo.maxapi.getset.h). 
+On the very top you will find two definitions, where you can select either to test the Setters OR the Getters. 
+
+**The Setters** will change the value on both rnbo~ test parameters every two seconds, which can be monitored via the connected `[attrui]` objects.
+**The Getters** will print the current value - as set through `[attrui]` - to the Max Console
+
+### Build the project
+Use the included `Build.sh` script. (On Windows you might have to install Git Bash or a similar environment).
 
 The script will automatically kill any open instance of Max once it starts building the external and will open Max after the successful build. 
 If you don't want that, invoke the script like so: `$ ./Build.sh dontExecuteMaxByScript`
