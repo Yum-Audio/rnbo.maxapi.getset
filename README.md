@@ -21,7 +21,7 @@ Add `<your-local-repo-path>/external` to your MaxMSP search paths, so MaxMSP can
 
 ## Build
 First, have a look at [Source/rnbo.maxapi.getset.h](Source/rnbo.maxapi.getset.h). 
-On the very top you will find two definitions, where you can select either to test the Setters OR the Getters. 
+At the very top you will find two definitions, where you can select either to test the Setters OR the Getters. 
 
 **The Setters** will change the value on both rnbo~ test parameters every two seconds, which can be monitored via the connected `[attrui]` objects.
 **The Getters** will print the current value - as set through `[attrui]` - to the Max Console
