@@ -1,6 +1,6 @@
 # rnbo-maxapi-getset
 
-This is a small example project, showcasing how to use the Max API to get and set parameters on rnbo~ objects. 
+This is a small example project, showcasing how to use the Max API to get and set parameters on rnbo~ objects programmatically via a MaxMSP external. 
 
 Additionally this project demonstrates a possible way of how to setup a project for a Min API (https://github.com/Cycling74/min-api) based MaxMSP external. 
 
