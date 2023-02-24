@@ -1,6 +1,5 @@
 #!/bin/sh
 
-killall Max
 reset
 
 unameOut="$(uname -s)"
@@ -30,9 +29,8 @@ if [ "$1" = "clean" ]; then
   fi
 fi
 
-if [ "$1" = "notarize" ]; then
-  BUILD_CONF="Release"
-  DONT_EXE_MAX=1
+if [ $DONT_EXE_MAX -eq 0 ]; then
+  killall Max
 fi
 
 if [ $currentos = Mac ]; then
@@ -42,10 +40,6 @@ elif [ $currentos = Win ]; then
 	EXPORTER="Visual Studio 17 2022"
   numCpuCores=$(powershell.exe -nologo -noprofile -command "& {Get-WmiObject -class Win32_processor | ft NumberOfLogicalProcessors}") 
   numCpuCores=${numCores//[!0-9]/}
-elif [ $currentos = Linux ]; then
-	EXPORTER="Unix Makefiles"
-    # todo figure out actual number of cores on windows
-  numCpuCores=8
 else
 	echo "error: unsupported OS"
 	exit 1
@@ -71,19 +65,13 @@ elif [ $currentos = Win ]; then
   cmake --build . --target ALL_BUILD --config "$BUILD_CONF" -j${numCpuCores} || exit 10
 fi
 
-
-
 cd .. 
 
-if [ "$1" = "notarize" ]; then
-  if [ $currentos = Mac ]; then
-    "./Mac_SignAndZip.sh" || exit 11
-  elif [ $currentos = Win ]; then
-    "./Win_SignAndZip.sh" || exit 11
-  fi
-fi
-
 if [ $DONT_EXE_MAX -eq 0 ]; then
-    "/Applications/Max.app/Contents/MacOS/Max"
+  if [ $currentos = Mac ]; then
+      "/Applications/Max.app/Contents/MacOS/Max"
+  elif [ $currentos = Win ]; then
+      "C:/Program Files/Cycling '74/Max 8/Max.exe"
+  fi
 fi
 

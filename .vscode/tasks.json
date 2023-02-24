@@ -18,13 +18,6 @@
             "type": "shell",
             "command": "./Build.sh",
             "presentation": {"echo": true, "reveal": "always", "focus": false, "panel": "shared", "showReuseMessage": false, "clear": true},
-        },
-        {
-            "label": "Build Notarized product",
-            "type": "shell",
-            "command": "./Build.sh notarize",
-            "presentation": {"echo": true, "reveal": "always", "focus": false, "panel": "shared", "showReuseMessage": false, "clear": true},
         }
-       
     ]
 }

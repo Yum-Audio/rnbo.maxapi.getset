@@ -94,6 +94,8 @@
         "memory_resource": "cpp",
         "__functional_base_03": "cpp",
         "forward_list": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "compare": "cpp",
+        "concepts": "cpp"
     }
 }

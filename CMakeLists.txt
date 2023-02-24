@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.4)
-project(rnbo.maxapi.test)
+project(rnbo.maxapi.getset)
 
 
 if (APPLE)
@@ -84,7 +84,7 @@ include_directories(
 )
 
 set(SOURCE_FILES
-	"Source/rnbo.maxapi.test.cpp"
+	"Source/rnbo.maxapi.getset.cpp"
 	"${MAX_SDK_INCLUDES}/common/commonsyms.c"
 )
 
