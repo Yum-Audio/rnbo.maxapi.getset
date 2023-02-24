@@ -19,14 +19,14 @@ void rnbo_maxapi_test::onGetterPrintTimer ()
     {
         cout << "" << endl;
         const auto paramVal = max::object_attr_getfloat (
-            max::jbox_get_object(currentlyConnectedRnboObject),
+            currentlyConnectedRnboObject,
             max::gensym("testParam")
         );
 
         cout << "testParam: " << paramVal << endl;
       
         if (auto enumSym = max::object_attr_getsym (
-                max::jbox_get_object (currentlyConnectedRnboObject), 
+                currentlyConnectedRnboObject, 
                 max::gensym ("testEnumParam")
             ))
         {
