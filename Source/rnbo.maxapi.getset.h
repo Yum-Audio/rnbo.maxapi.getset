@@ -18,7 +18,7 @@ class rnbo_maxapi_getset : public object<rnbo_maxapi_getset>
 public:
     rnbo_maxapi_getset (const min::atoms &args = {});
 
-    MIN_DESCRIPTION { "RNBO MaxAPI test" };
+    MIN_DESCRIPTION { "RNBO MaxAPI getset demo" };
     MIN_TAGS        { "utilities" };
     MIN_AUTHOR      { "Yum Audio" };
     MIN_RELATED     {""};
