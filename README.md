@@ -19,6 +19,8 @@ Add `<your-local-repo-path>/external` to your MaxMSP search paths, so MaxMSP can
 Build the project using the included `Build.sh` script. (On Windows you might have to install Git Bash or a similar environment).
 
 The script will automatically kill any open instance of Max once it starts building the external and will open Max after the successful build. 
+If you don't want that, invoke the script like so: `$ ./Build.sh dontExecuteMaxByScript`
+To clean build you can do: `$ ./Build.sh dontExecuteMaxByScript` or `$ ./Build.sh clean dontExecuteMaxByScript` 
 
 ### VS Code support
 Additionally to build by script you have the option to build and debug using VS Code. 
